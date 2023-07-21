@@ -1,0 +1,34 @@
+
+
+
+ALGORITHM prob_1
+VAR
+set1: ARRAY_OF INTEGER[5]:={1,2,3,4,5};
+set2: ARRAY_OF INTEGER[4]:={1,2,3,4};
+result:INTEGER;
+
+BEGIN
+
+FUNCTION sum_function(set1:ARRAY_OF INTEGER[], set2:ARRAY_OF INTEGER[]) : INTEGER
+VAR
+   i,j:INTEGER;
+sum:INTEGER:=0;
+BEGIN
+   FOR i FROM 0 TO set1.length-1 STEP 1  DO
+    FOR j FROM 0 TO set2.length-1 STEP 1  DO
+    IF (set1[i] := set2[j]) THEN
+        break;
+    END_IF
+        IF (set1[i] <> set2[j] AND j:=set2.length-1) THEN
+sum : =sum + set1[i];
+        END_IF
+    END_FOR
+END_FOR
+    RETURN sum ;
+END
+
+result := sum_function(set1,set2);
+write("la somme des nombres distincts = " & result);
+
+END
+
